@@ -2,19 +2,10 @@
 
 class SignInCest
 {
-    public function _before(AcceptanceTester $I)
-    {
-    }
-
     // tests
-    public function signIn(AcceptanceTester $I)
+    function showUserProfile(AcceptanceTester $I, \Page\Acceptance\Login $loginPage)
     {
-        $I->amOnPage('/');
-        $I->click('Sign in');
-        $I->see('AUTHENTICATION');
-        $I->fillField('#email', 'aaa@jjj.com');
-        $I->fillField('#passwd', '12345');
-        $I->click('SubmitLogin');
+        $loginPage->login('aaa@jjj.com', '12345');
         $I->see('Jessica Tavares');
     }
 }
